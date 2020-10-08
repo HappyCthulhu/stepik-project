@@ -16,7 +16,6 @@ def driver(request):
     driver_name = request.config.getoption("driver_name")
     user_language = request.config.getoption('language')
     print('Look at me')
-    driver = None
     if driver_name == "chrome":
         print("\nstart chrome driver for test..")
         options = Options()
