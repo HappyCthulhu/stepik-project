@@ -1,5 +1,10 @@
+import time
+
 from .locators import LoginPageLocators
 from .base_page import BasePage
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 
 class LoginPage(BasePage):
@@ -21,3 +26,9 @@ class LoginPage(BasePage):
     def should_be_register_form(self):
         # реализуйте проверку, что есть форма регистрации на странице
         assert self.driver.find_element(*LoginPageLocators.REGISTER_FORM), 'Register form is not present'
+
+    def register_new_user(self, email, password):
+        self.driver.find_element(*LoginPageLocators.REGISTER_LOGIN).send_keys(email)
+        self.driver.find_element(*LoginPageLocators.REGISTER_PASSWORD).send_keys(password)
+        self.driver.find_element(*LoginPageLocators.REGISTER_CONFIRM_PASSWORD).send_keys(password)
+        self.driver.find_element(*LoginPageLocators.REGISTER_BUTTON).click()

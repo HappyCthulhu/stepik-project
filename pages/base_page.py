@@ -1,5 +1,9 @@
 import math
-from pages.locators import BaseLocators
+import time
+
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from pages.locators import BaseLocators, BasketPageLocators, LoginPageLocators
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException
 
 
@@ -16,7 +20,6 @@ class BasePage:
 
     def should_be_login_link(self):
         assert self.is_element_present(*BaseLocators.LOGIN_LINK), "Login link is not presented"
-
 
     def open(self):
         self.driver.get(self.url)
@@ -41,3 +44,11 @@ class BasePage:
         except NoSuchElementException:
             return False
         return True
+
+    def go_to_basket_page(self):
+        basket_button = self.driver.find_element(*BasketPageLocators.BASKET_LINK)
+        basket_button.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BaseLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
