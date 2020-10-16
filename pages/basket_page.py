@@ -1,5 +1,5 @@
 from pages.base_page import BasePage
-from pages.locators import BaseLocators, BasketPageLocators
+from pages.locators import BasketPageLocators
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC

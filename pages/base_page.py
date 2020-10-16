@@ -1,22 +1,16 @@
 import math
-import time
-
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from pages.locators import BaseLocators, BasketPageLocators, LoginPageLocators
+from pages.locators import BaseLocators, BasketPageLocators
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException
 
 
 class BasePage:
-    def __init__(self, driver, url, timeout=10):
+    def __init__(self, driver, url):
         self.driver = driver
         self.url = url
-        # self.driver.implicitly_wait(timeout)
 
     def go_to_login_page(self):
         login_link = self.driver.find_element(*BaseLocators.LOGIN_LINK)
         login_link.click()
-        # return LoginPage(driver=self.driver, url=self.driver.current_url)
 
     def should_be_login_link(self):
         assert self.is_element_present(*BaseLocators.LOGIN_LINK), "Login link is not presented"

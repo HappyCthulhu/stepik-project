@@ -29,10 +29,6 @@ class ProductPage(BasePage):
             return True
         return False
 
-    # def should_not_be_success_message(self):
-    #     assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
-    #         "Success message is presented, but should not be"
-
     def is_disappeared(self, how, what, timeout=4):
         try:
             WebDriverWait(self.driver, timeout, 1, TimeoutException). \
