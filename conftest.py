@@ -15,7 +15,6 @@ def pytest_addoption(parser):
 def driver(request):
     driver_name = request.config.getoption("driver_name")
     user_language = request.config.getoption('language')
-    print('Look at me')
     if driver_name == "chrome":
         print("\nstart chrome driver for test..")
         options = Options()

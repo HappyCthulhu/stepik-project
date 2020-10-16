@@ -21,7 +21,7 @@ class TestLoginFromMainPage:
         link = "http://selenium1py.pythonanywhere.com/"
         page = MainPage(driver, link)
         page.open()
-        login_page = page.should_be_login_link()
+        page.should_be_login_link()
 
 
 def test_link_is_correct(driver):
@@ -50,5 +50,5 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(driver):
     page = BasketPage(driver, link)
     page.open()
     page.go_to_basket_page()
-    assert page.basket_is_empty(*BasketPageLocators.BASKET_ITEMS)
+    page.basket_is_empty(*BasketPageLocators.BASKET_ITEMS)
     page.empty_basket_text_is_present()

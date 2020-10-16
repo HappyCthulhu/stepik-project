@@ -2,3 +2,5 @@
 /.pytest_cache
 /__pycache__
 chromedriver.exe
+/pages/__pycache__
+debug.log
